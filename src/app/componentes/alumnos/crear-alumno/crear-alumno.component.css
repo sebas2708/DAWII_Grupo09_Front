@@ -1,0 +1,19 @@
+.container {
+    margin-top: 50px; /* Ajusta el valor según tu preferencia */
+}
+
+.container h2 {
+    margin-bottom: 20px; /* Ajusta el valor según tu preferencia */
+}
+
+.boton {
+    font-family: 'Gill Sans', sans-serif;
+    font-size:14px;
+    font-weight: 1000;
+    padding: 10px;
+    margin: 0 5px;
+  }
+
+.btn-icon i {
+    margin-left: 10px;
+}

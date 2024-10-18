@@ -1,0 +1,19 @@
+  .login h2{
+    text-align: center;
+  }
+
+  /* Estilos adicionales para personalizar el formulario */
+.card {
+  /* Estilos existentes de la tarjeta circular */
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} 
+
+.card-img {
+  filter: blur(3px);
+  height: 300px;
+}
+
+.card-img-overlay {
+  background-color: rgba(255, 255, 255, 0.8);
+}

@@ -1,0 +1,53 @@
+<div class="container">
+  <h2>Formulario de Inscripción</h2>
+  <form #formulario="ngForm" class="row g-3 needs-validation" novalidate (ngSubmit)="guardar(formulario)">
+      <div class="col-md-4">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nuevoAlumno.nombre" required>
+      </div>
+      <div class="col-md-4">
+          <label for="nombre" class="form-label">Apellido Paterno</label>
+          <input type="text" class="form-control" id="nombre" [(ngModel)]="nuevoAlumno.paterno" name="paterno" required >
+      </div>
+      <div class="col-md-4">
+          <label for="nombre" class="form-label">Apellido Materno</label>
+          <input type="text" class="form-control" id="nombre" [(ngModel)]="nuevoAlumno.materno" name="materno" required>
+      </div>
+      <div class="col-md-4">
+          <label for="nombre" class="form-label">Fecha de Nacimiento</label>
+          <input type="date" class="form-control" id="nacimiento" [(ngModel)]="nuevoAlumno.nacimiento" name="nacimiento" required>
+      </div>
+      <div class="col-md-4">
+          <label for="grado">Grado</label>
+          <select class="form-select" id="grado" [(ngModel)]="gradoSeleccionado" name="grado" required >
+              <option value="" disabled selected>Seleccionar grado</option>
+              <option *ngFor="let grado of grados" [ngValue]="grado">{{grado.descripcion}}</option>
+          </select>
+      </div>
+      <div class="col-md-4">
+        <label for="cursos">Cursos</label>
+        <div>
+          <label>
+            <input type="checkbox" (change)="toggleAll($event)"> Seleccionar todos
+          </label>
+        </div>
+        <div *ngFor="let curso of cursos">
+          <label class="curso-checkbox">
+            <input type="checkbox" (change)="toggleCurso(curso)" [checked]="cursoSeleccionado.includes(curso)">
+            {{ curso.descripcion }}
+          </label>
+        </div>
+        <p>Cursos seleccionados: {{ cursoSeleccionado.length }}</p>
+      </div>
+      <div class="col-md-4">
+          <label for="salon">Salon</label>
+          <select class="form-select" id="salon" [(ngModel)]="salonSeleccionado" name="salon" required>
+              <option value="" disabled selected>Seleccionar salon</option>
+              <option *ngFor="let salon of salones" [ngValue]="salon">{{salon.descripcion}}</option>
+          </select>
+      </div>
+      <div class="d-flex justify-content-center">
+          <button type="submit" style="width: 15%;" class="btn btn-success boton btn-icon mb-3" [disabled]="!formulario.valid">Guardar<i class="bi bi-save-fill"></i></button>
+      </div>
+  </form>
+</div>

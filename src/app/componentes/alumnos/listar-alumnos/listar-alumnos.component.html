@@ -1,0 +1,43 @@
+<div>
+    <div class="container-fluid">
+        <h1 class="text-center mt-3">Lista de Alumnos</h1>
+      <button (click)="crearAlumno()" class="btn btn-primary boton btn-icon">
+        Crear Alumno<i class="bi bi-clipboard-plus"></i>
+      </button>
+      <table class="table table-hover">
+        <thead class="thead">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Nacimiento</th>
+            <th>Grado</th>
+            <th>Salon</th>
+            <th>Cursos</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let alumno of Alumnos">
+            <td>{{ alumno.id }}</td>
+            <td>{{ alumno.nombre }}</td>
+            <td>{{ alumno.paterno }} {{ alumno.materno }}</td>
+            <td>{{ alumno.nacimiento}}</td>
+            <td>{{ alumno.gradoDTO ? alumno.gradoDTO.descripcion : 'Sin grado' }}</td> <!-- Comprobación normal -->
+            <td>{{ alumno.salonDTO.descripcion}}</td>
+            <td>
+              <ul>
+                <li *ngFor="let curso of alumno.cursosDTO">{{ curso.descripcion }}</li>
+              </ul>
+            </td>
+            <td class="justify-content-between">
+              <button (click)="editarAlumnos(alumno)"  style="width: 35%;" class="btn btn-warning boton btn-icon">
+                Editar<i class="bi bi-gear"></i></button>
+              <button (click)="eliminarAlumno(alumno.id)" style="width: 35%;" class="btn btn-danger boton btn-icon">
+                Eliminar<i class="bi bi-eraser"></i></button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
