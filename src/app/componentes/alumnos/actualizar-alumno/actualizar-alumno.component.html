@@ -1,40 +1,36 @@
-<p>actualizar-alumno works!</p>
-<div class="container col-md-6">
-    <div class="card-header">
-        <h3>Actualizar Alumno</h3>
-    </div>
-    <div class="card-body">
-        <form (ngSubmit)="actualizarAlumno()" #formAlumno="ngForm">
+    <div class="container">
+        <h2>Formulario de Inscripción</h2>
+        <form (ngSubmit)="actualizarAlumno()" class="row g-3 needs-validation" novalidate #formAlumno="ngForm">
             <div *ngIf="mensaje" class="alert alert-info">{{ mensaje }}</div>
-            <div class="form-group">
-                <label for="id">ID:</label>
+            <div class="col-md-4">
+                <label for="id"  class="form-label">ID:</label>
                 <input type="text" [value]="editarAlumno.id" name="id" class="form-control" readonly>
             </div>
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
+            <div class="col-md-4">
+                <label for="nombre"  class="form-label">Nombre:</label>
                 <input type="text" [(ngModel)]="editarAlumno.nombre" name="nombre" class="form-control" required>
             </div>
-            <div class="form-group">
-                <label for="paterno">Apellido Paterno:</label>
+            <div class="col-md-4">
+                <label for="paterno"  class="form-label">Apellido Paterno:</label>
                 <input type="text" [(ngModel)]="editarAlumno.paterno" name="paterno" class="form-control" required>
             </div>
-            <div class="form-group">
-                <label for="materno">Apellido Materno:</label>
+            <div class="col-md-4">
+                <label for="materno"  class="form-label">Apellido Materno:</label>
                 <input type="text" [(ngModel)]="editarAlumno.materno" name="materno" class="form-control">
             </div>
-            <div class="form-group">
-                <label for="nacimiento">Fecha de Nacimiento:</label>
+            <div class="col-md-4">
+                <label for="nacimiento"  class="form-label">Fecha de Nacimiento:</label>
                 <input type="date" [(ngModel)]="editarAlumno.nacimiento" name="nacimiento" class="form-control">
             </div>
 
-            <div class="form-group">
+            <div class="col-md-4">
                 <label for="grado">Grado:</label>
                 <select [(ngModel)]="gradoSeleccionado" name="grado" class="form-control" >
                     <option *ngFor="let grado of grados" [ngValue]="grado">{{ grado.descripcion }}</option>
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="col-md-4">
                 <label>Cursos:</label>
                 <div *ngFor="let curso of cursos; trackBy: trackByCurso">
                     <input type="checkbox" 
@@ -44,14 +40,14 @@
                 </div>
             </div>
             
-            <div class="form-group">
+            <div class="col-md-4">
                 <label for="salon">Salón:</label>
                 <select [(ngModel)]="salonSeleccionado" name="salon" class="form-control">
                     <option *ngFor="let salon of salones" [ngValue]="salon">{{ salon.descripcion }}</option>
                 </select>
             </div>
-            <br>
-            <button type="submit" class="btn btn-danger" [disabled]="!formAlumno.valid">Guardar</button>
+            <div class="d-flex justify-content-center">
+                <button type="submit" style="width: 15%;" class="btn btn-danger boton btn-icon mb-3" [disabled]="!formAlumno.valid">Guardar<i class="bi bi-save-fill"></i></button>
+            </div>
         </form>
     </div>
-</div>

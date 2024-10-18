@@ -26,11 +26,6 @@
       </div>
       <div class="col-md-4">
         <label for="cursos">Cursos</label>
-        <div>
-          <label>
-            <input type="checkbox" (change)="toggleAll($event)"> Seleccionar todos
-          </label>
-        </div>
         <div *ngFor="let curso of cursos">
           <label class="curso-checkbox">
             <input type="checkbox" (change)="toggleCurso(curso)" [checked]="cursoSeleccionado.includes(curso)">
